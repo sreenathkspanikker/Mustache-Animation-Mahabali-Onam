@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mahabali</title>
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        background-color: black;
+      }
+      .app-frame {
+        width: 100%;
+        height: 100%;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .head {
+        width: 311px;
+        height: 440px;
+        margin: 0 auto;
+        position: relative;
+      }
+      .crown-1 {
+        width: 250px;
+        height: 250px;
+        border-radius: 100%;
+        border: 30px solid #ffbe00;
+        background-color: #d23718;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .crown-2 {
+        width: 200px;
+        height: 200px;
+        border-radius: 100%;
+        border: 30px solid #d6a003;
+        background-color: #57ae0f;
+        /* background-color: #fcdfa4; */
+        position: absolute;
+        top: 90px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+      }
+      .face-1 {
+        width: 225px;
+        height: 145px;
+        border-top-left-radius: 100%;
+        border-top-right-radius: 100%;
+        background-color: #fcdfa4;
+        position: absolute;
+        top: 160px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: 2;
+      }
+      .eye {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 60px;
+        width: 65%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .eyebrow-1,
+      .eyebrow-2 {
+        width: 30px;
+        height: 8px;
+        border-top-left-radius: 100%;
+        border-top-right-radius: 100%;
+        background-color: black;
+        margin: 0 auto;
+        margin-bottom: 10px;
+      }
+      .eye-circle-1,
+      .eye-circle-2 {
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        background: white;
+        position: relative;
+        margin: 0 auto;
+      }
+      .eye-circle-1 span,
+      .eye-circle-2 span {
+        display: block;
+        width: 15px;
+        height: 16px;
+        border-radius: 100%;
+        background: black;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        margin: auto;
+      }
+      .nose {
+        width: 20px;
+        height: 70px;
+        background-color: #e3c68b;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0px;
+        margin: 0 auto;
+      }
+      .nose:after {
+        content: "";
+        width: 31px;
+        height: 31px;
+        border-radius: 100%;
+        background-color: #e3c68b;
+        position: absolute;
+        left: -5px;
+        right: 0;
+        bottom: -4px;
+        margin: 0 auto;
+      }
+      .face-2 {
+        width: 225px;
+        height: 145px;
+        border-bottom-left-radius: 100%;
+        border-bottom-right-radius: 100%;
+        background-color: #fcdfa4;
+        position: absolute;
+        top: 294px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: 2;
+      }
+      .mustache {
+        width: 40px;
+        height: 40px;
+        left: 0;
+        top: -115px;
+        left: -131px;
+        right: 0;
+        margin: 0 auto;
+        border-radius: 50%;
+        position: absolute;
+        color: black;
+        box-shadow: 50px 120px 0 0 currentColor, 75px 120px 0 0 currentColor;
+        z-index: 2;
+      }
+      .mustache::before {
+        content: "";
+        position: absolute;
+        left: 53px;
+        top: 27px;
+        width: 81px;
+        height: 78px;
+        border-bottom: solid 31px currentColor;
+        border-radius: 0 0 0 100%;
+        transform: rotate(-40deg);
+        transform-origin: right 210px;
+        animation-duration: 1.5s;
+        animation-timing-function: ease-in-out;
+        animation-delay: 1s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-name: shakeL;
+      }
+      .mustache::after {
+        content: "";
+        position: absolute;
+        left: 30px;
+        top: 25px;
+        width: 81px;
+        height: 78px;
+        border-bottom: solid 31px currentColor;
+        border-radius: 0 0 100%0;
+        transform: rotate(40deg);
+        transform-origin: left 210px;
+        animation-duration: 1.5s;
+        animation-timing-function: ease-in-out;
+        animation-delay: 1s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-name: shakeR;
+      }
+      .mouth {
+        width: 60px;
+        height: 30px;
+        border-bottom-left-radius: 100%;
+        border-bottom-right-radius: 100%;
+        border: 10px solid red;
+        background-color: white;
+        position: absolute;
+        top: 35px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: 1;
+      }
+
+      @keyframes shakeL {
+        0% {
+          transform: rotate(-30deg);
+        }
+        25% {
+          transform: rotate(-40deg);
+        }
+        50% {
+          transform: rotate(-30deg);
+        }
+        100% {
+          transform: rotate(-30deg);
+        }
+      }
+
+      @keyframes shakeR {
+        0% {
+          transform: rotate(30deg);
+        }
+        25% {
+          transform: rotate(40deg);
+        }
+        50% {
+          transform: rotate(30deg);
+        }
+        100% {
+          transform: rotate(30deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app-frame">
+      <div class="head">
+        <div class="crown-1"></div>
+        <div class="crown-2"></div>
+        <div class="face-1">
+          <div class="eye">
+            <div class="eye-1">
+              <div class="eyebrow-1"></div>
+              <div class="eye-circle-1"><span></span></div>
+            </div>
+            <div class="ecye-2">
+              <div class="eyebrow-2"></div>
+              <div class="eye-circle-2"><span></span></div>
+            </div>
+          </div>
+          <div class="nose"></div>
+        </div>
+        <div class="face-2">
+          <div class="mustache"></div>
+          <div class="mouth"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
